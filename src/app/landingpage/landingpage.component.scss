@@ -1,0 +1,40 @@
+
+div#main{
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    overflow-y: hidden;
+    flex-direction: column;
+    place-content: space-between;
+    padding: 20px;
+    text-align: center;
+     
+    p{
+        text-align: center;
+    }
+    img{
+        width:60vw;
+    }
+    button{
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #0872BA;
+        -webkit-box-shadow: -1px -1px 40px 0px rgba(0,15,219,0.72);
+        -moz-box-shadow: -1px -1px 40px 0px rgba(0,15,219,0.72);
+        box-shadow: -1px -1px 40px 0px rgba(0,15,219,0.72);
+        color:#FDBB30;
+        font-size: 160%;
+        padding: 16px 32px;
+        opacity: 0.8;
+        //-webkit-animation: 1.5s infinite pulse;
+        border:1px solid #0872BA;
+        &:hover{
+            opacity: 1;
+            background-color: #FDBB30;
+            color:#0872BA;
+        }
+        
+    }
+}

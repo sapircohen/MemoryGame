@@ -1,0 +1,151 @@
+$desktopView:16vh 16vh 16vh 16vh;
+$mobileView:16vh 16vh;
+@mixin view($columns) {
+    div#main{
+        div{
+            text-align: center;
+            div#board{
+                display: grid;
+                gap:2vh;//or 10px
+                grid-template-columns: $columns;
+                justify-content: center;
+                margin: 1% 0%;
+            }
+            h2{
+                text-align: center;
+            }
+
+        }      
+        button{
+          cursor: pointer;
+          //font-family: $font;
+          background-color: #0872BA;
+          color:#FDBB30;
+          font-size: 160%;
+          padding: 16px 32px;
+          transition: 0.5s;
+          opacity: 0.8;
+          border:1px solid;
+          &:hover{
+              opacity: 1;
+              background-color: #FDBB30;
+              color:#0872BA;
+          }
+        }
+        div#loader{
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          #spinner{
+            width: 80px;
+            height: 80px;
+            //margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+          }
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+          
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+          }
+          
+          @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+        }
+    } 
+    div#endGame{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      padding: 12px;
+      button{
+        padding: 10px 30px;
+        cursor: pointer;
+        opacity: 0.7;
+        background-color:#0872BA;
+        color:#FDBB30;
+        font-size: 24px;
+        border: #0872BA;
+
+      }
+    }
+    
+    
+} 
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    @include view($desktopView);
+}
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    @include view($desktopView);
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    @include view($desktopView);
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    @include view($desktopView);
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    @include view($mobileView);
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    @include view($mobileView);
+    
+  }

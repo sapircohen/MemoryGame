@@ -1,0 +1,10 @@
+<!-- <div (click)="flipCard()">
+    <img [src]="card.isFlipped?card.image:blackCard" alt="card img" />
+</div> -->
+
+<section>    
+    <div (click)="flipCard()"  id="player" class="player" [class.voted]="card.isFlipped">
+          <img class="front" [src]="blackCard">
+          <img class="back" [src]="card.image">
+    </div>
+</section>

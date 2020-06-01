@@ -1,0 +1,26 @@
+<div *ngIf="!showPlayAgain; else finishGame" id="main">
+    <div *ngIf="isReady; else loading">
+        <h1>Memory Game</h1>
+        <app-countdown (endGameEvent)="endGame($event)" [isFinished]="isFinished" [time]="gameSettings.time"></app-countdown>
+        <div id="board">
+            <div *ngFor="let image of gameSettings.images">
+                <app-card (cancelFlipEvent)="cards.length=0" (checkPairEvent)="checkPair($event)" [card]="image"></app-card>
+            </div>
+        </div>
+        <h2>Matches: {{moves}}</h2>
+    </div>
+    <ng-template #loading>
+        <div id="loader">
+            <div id="spinner"></div>
+        </div>
+    </ng-template>
+</div>
+<ng-template #finishGame>
+    <div id="endGame">
+        <h1>{{endText}}</h1>
+        <p>You played for {{endTime -startTime}} seconds and made {{moves}} pairs</p>
+        <button (click)="initGame()">
+            Play again
+        </button>
+    </div>
+</ng-template>
